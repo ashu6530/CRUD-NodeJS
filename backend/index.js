@@ -1,13 +1,16 @@
 import express from "express";
-import { PORT, mongoURL } from "./config.js";
+import 'dotenv/config'
 import mongoose from "mongoose";
 import bookRoute from './routes/bookRoute.js'
 import cors from 'cors'
 const app = express();
+const PORT = process.env.PORT
+const mongoURL =process.env.mongoURL
 
 app.use(express.json());
 app.use(cors())
 app.use('/books',bookRoute)
+
 
 // app.use(cors({
 //   orign:'http://localhost:3000',
